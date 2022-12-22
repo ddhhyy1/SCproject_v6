@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.studycafe.prac.dao.TodayTicketDao">
+
+	<!-- 당일 이용권 관련  -->
+	<insert id="regist">
+		INSERT INTO scseatTBL(seatNo, userId, ticketName, selectedDate, selectedTime, TEMPUSINGNO)
+		 VALUES(#{param1}, #{param2}, #{param3}, #{param4},#{param5},TEMPUN_seq.nextval) 
+	</insert>
+
+
+	<select id="registTodayConfirm" resultType="com.studycafe.prac.dto.seatDto">
+		select * from scseatTBL order by tempUsingNo desc
+	
+	</select>
+	<!-- 당일 이용권 끝  -->
+	
+	<!-- 시간 이용권 관련 -->
+	<insert id="BuySTicket">
+		INSERT INTO SUBSCRIPTIONTBL(sticketNo, sticketName, sticketId, sremainTime)
+		VALUES (STICKET_seq.nextval, #{param1}, #{param2}, #{param3})
+	</insert>
+	
+	
+	
+	
+	
+</mapper>
