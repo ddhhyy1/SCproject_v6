@@ -8,8 +8,8 @@
 
 	<!-- 당일 이용권 관련  -->
 	<insert id="regist">
-		INSERT INTO scseatTBL(seatNo, userId, ticketName, selectedDate, selectedTime, TEMPUSINGNO)
-		 VALUES(#{param1}, #{param2}, #{param3}, #{param4},#{param5},TEMPUN_seq.nextval) 
+		INSERT INTO scseatTBL(seatNo, userId, ticketName, selectedDate, startTime, TEMPUSINGNO, endTime )
+		 VALUES(#{param1}, #{param2}, #{param3}, #{param4},#{param5},TEMPUN_seq.nextval,#{param6}) 
 	</insert>
 
 

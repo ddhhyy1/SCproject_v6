@@ -14,8 +14,8 @@ public class seatDto {
 	private String userId;
 	private String ticketName;
 	private String selectedDate;
-	private String selectedTime;
-	
+	private String startTime;
+	private String endTime;	
 	
 
 }

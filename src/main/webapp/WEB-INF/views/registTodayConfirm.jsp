@@ -62,14 +62,14 @@
 									</tr>
 										<tr>
 										<td><span class="content_text01">시작시간 : </span></td>
-										<td>${fseatDto.selectedTime}
+										<td>${fseatDto.startTime}
 										
 										</td>
 									</tr>
 										</tr>
 										<tr>
 										<td><span class="content_text01">종료시간 : </span></td>
-										<td>
+										<td>${fseatDto.endTime}
 										
 										</td>
 									</tr>

@@ -2,6 +2,7 @@ package com.studycafe.prac.controller;
 
 import java.net.http.HttpRequest;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -76,14 +77,19 @@ public class HomeController {
 		
 		TodayTicketDao dao = sqlSession.getMapper(TodayTicketDao.class);
 		
-		int seatNo1 = Integer.parseInt(request.getParameter("seatNo").toString());
+		int seatNo = Integer.parseInt(request.getParameter("seatNo").toString());
 		String userId = request.getParameter("userId");
-		String ticketName1 = request.getParameter("ticketName");
+		String ticketName = request.getParameter("ticketName");
 		String selectedDate = request.getParameter("selectedDate");
-		String [] selectedTime = request.getParameter("selectedTime");
+		String [] selectedTime = request.getParameterValues("selectedTime");
+		
+		Arrays.sort(selectedTime);
+			String startTime = selectedTime[0];
+			String endTime= selectedTime[selectedTime.length - 1];
+
 		
 		
-		dao.regist(seatNo1, userId, ticketName1, selectedDate, selectedTime);
+		dao.regist(seatNo, userId, ticketName, selectedDate, startTime, endTime);
 		
 		
 		return "redirect:registTodayConfirm";
