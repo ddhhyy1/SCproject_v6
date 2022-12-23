@@ -91,50 +91,7 @@
 		<input type="hidden" name = "userId" value="<%=userId%>">
 		<input type="hidden" name = "selectedDate" value="<%=selectedDate%>">
 		<input type="hidden" name = "seatNo" value="<%=seatNo%>">
-		<tr>
-			<td class="titlebox">
-				<h1>당일권_사용등록&예약하기</h1>
-			</td>
-		</tr>
-		<tr>
-			<td class="titlebox">
-				<span class="title02">회원아이디:</span>
-				${userId}
-			</td>
-		</tr>
-		<tr>
-			<td class="titlebox">
-				<span class="title02">이용날짜:
-				${selectedDate}
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td class="titlebox">
-				<span class="title02">좌석지정:
-  					${seatNo}
-				</span>
-			</td>
 		
-		</tr>
-		<tr>
-							<td class="titlebox">
-								<span class="title02" name="ticketName2">이용시간:
-  									<select name="ticketName" >
-   						 				<option value="none" name="usingTIME">=== 선택 ===</option>
-   						 				<option value="1" selected>1시간 - 2,000p</option>
-    					 				<option value="2">2시간 - 3,000p</option>
-    									<option value="4">4시간 - 5,000p</option>
-    								    <option value="6">6시간 - 6,000p</option>
-    					 				<option value="8">8시간 - 7,000p</option>
- 					 				</select>
-								</span>
-							</td>
-							</tr>
-		<tr>
-			<td>
-				<center>
-					<div class="row">
 						<table id="example-table-1"  width="80%" border="1" cellspacing="1" cellpadding="10"
 						>
 							<thead>
@@ -153,22 +110,18 @@
 										<label><input type="checkbox" name="selectedTime" value="a1"></label>
 										</td>
 										<td rowspan="16" class="picbox">
-										<img src="${pageContext.request.contextPath }/resources/img/cafemap.png" width="700">
+										
 									</td>
 									</tr>
-									<c:forEach begin="8" end="23" step="1" var="l" items="${ALseatDto}" var="seatdto">
+   						 				<c:forEach begin="8" end="23" step="1" var="l">
 												<tr>
 													<td class="skillbox" >${l}:00 ~ ${l+1}:00</td>
-													<% 
-													
-													%>
 													<td class="skillbox" >사용&예약 가능</td>
 													<td class="skillbox" >
-													<label><input type="checkbox" name="selectedTime" value="a${l}"></label>		 					 				
+													<label><input type="checkbox" name="selectedTime" value="a{l}"></label>		 					 				
 													</td>
 												</tr>
 										</c:forEach>
-							
 							
 									
 							</tbody>

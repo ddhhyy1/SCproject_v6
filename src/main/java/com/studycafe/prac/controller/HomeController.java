@@ -33,6 +33,12 @@ public class HomeController {
 		
 		return "testpage";
 	}
+	@RequestMapping(value="/tabletest")//이용금액표
+	public String talbetest() {
+		
+		
+		return "tabletest";
+	}
 	
 	@RequestMapping(value="/loginpage")//이용금액표
 	public String loginpage() {
@@ -71,10 +77,16 @@ public class HomeController {
 		String selectedDate = request.getParameter("selectedDate");
 		int seatNo = Integer.parseInt(request.getParameter("seatNo").toString());
 		
+		ArrayList<seatDto> ALseatDto = dao.searchSeat(userId, selectedDate);
+		
+		seatDto seatdto= new seatDto();
+		
+		seatDto seatdto1 = ALseatDto.get(seatNo);
+		
 		model.addAttribute("userId", userId);
 		model.addAttribute("selectedDate", selectedDate);
 		model.addAttribute("seatNo", seatNo);
-		
+		model.addAttribute("ALseatDto", seatdto1);
 		
 		return "TodayTicketView2";
 	}
@@ -87,7 +99,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/registToday")
-	public String regist(HttpServletRequest request,HttpServletResponse response) {
+	public String regist(HttpServletRequest request,HttpServletResponse response,Model model) {
 		
 		TodayTicketDao dao = sqlSession.getMapper(TodayTicketDao.class);
 		
@@ -99,14 +111,22 @@ public class HomeController {
 		
 		//넘어온 체크박스값들 정렬 후, 첫번째값과 마지막값 추출하여 start,end time에 각각 넣기
 		Arrays.sort(selectedTime);
-			String startTime = selectedTime[0];
-			String endTime= selectedTime[selectedTime.length - 1];
-
-			int intticketName= Integer.parseInt(ticketName);
+		String startTime = selectedTime[0];
+		String endTime= selectedTime[selectedTime.length - 1];
+		
+		
+		int intticketName= Integer.parseInt(ticketName);//ticketname을 int로 변환
 			
-			if(intticketName==selectedTime.length) {
+			if(intticketName==selectedTime.length) {//체크박스의 갯수와 ticketname의 숫자를 비교해서 일치하지 않으면 뒤로돌려보냄
 				dao.regist(seatNo, userId, ticketName, selectedDate, startTime, endTime);
-				return "redirect:registTodayConfirm";
+				
+				ArrayList<seatDto> seatDto= dao.registTodayConfirm();
+				
+				seatDto fseatDto = seatDto.get(0);
+				
+				model.addAttribute("fseatDto", fseatDto);
+				
+				return "registTodayConfirm";
 			}else {
 			try {
 				response.setContentType("text/html; charset=UTF-8");      
@@ -131,17 +151,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/registTodayConfirm")
 	public String confirm(Model model) {
-		
-		
-		TodayTicketDao dao = sqlSession.getMapper(TodayTicketDao.class);
-		
-		ArrayList<seatDto> seatDto= dao.registTodayConfirm();
-		
-		seatDto fseatDto = seatDto.get(seatDto.size()-1);
-		
-		model.addAttribute("fseatDto", fseatDto);
-		 
-		
+
 		return "registTodayConfirm";
 	}
 	@RequestMapping(value="/SubscriptionTicketBuy")//이용금액표

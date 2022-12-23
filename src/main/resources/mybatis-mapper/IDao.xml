@@ -14,9 +14,15 @@
 
 
 	<select id="registTodayConfirm" resultType="com.studycafe.prac.dto.seatDto">
-		select * from scseatTBL order by tempUsingNo DESC
+		select * from scseatTBL order by reservDate DESC
 	
 	</select>
+	
+		<select id="searchSeat" resultType="com.studycafe.prac.dto.seatDto">
+		select * from scseatTBL where seatNo=#{param1}, selectedDate=#{param2}
+	
+	</select>
+	
 	<!-- 당일 이용권 끝  -->
 	
 	<!-- 시간 이용권 관련 -->

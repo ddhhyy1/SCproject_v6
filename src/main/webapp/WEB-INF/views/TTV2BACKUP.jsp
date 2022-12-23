@@ -156,18 +156,111 @@
 										<img src="${pageContext.request.contextPath }/resources/img/cafemap.png" width="700">
 									</td>
 									</tr>
-									<c:forEach begin="8" end="23" step="1" var="l" items="${ALseatDto}" var="seatdto">
-												<tr>
-													<td class="skillbox" >${l}:00 ~ ${l+1}:00</td>
-													<% 
-													
-													%>
-													<td class="skillbox" >사용&예약 가능</td>
-													<td class="skillbox" >
-													<label><input type="checkbox" name="selectedTime" value="a${l}"></label>		 					 				
-													</td>
-												</tr>
-										</c:forEach>
+									<tr>
+										<td class="skillbox" >9:00 ~ 10:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a2"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >10:00 ~ 11:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a3"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >11:00 ~ 12:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a4"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >12:00 ~ 13:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a5"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >13:00 ~ 14:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a6"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >14:00 ~ 15:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a7"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >15:00 ~ 16:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a8"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >16:00 ~ 17:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a9"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >17:00 ~ 18:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a10"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >18:00 ~ 19:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a11"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >19:00 ~ 20:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a12"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >20:00 ~ 21:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a13"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >21:00 ~ 22:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a14"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >22:00 ~ 23:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a15"></label>
+										</td>
+									</tr>
+									<tr>
+										<td class="skillbox" >23:00 ~ 24:00</td>
+										<td class="skillbox" >사용&예약 가능</td>
+										<td class="skillbox" >
+										<label><input type="checkbox" name="selectedTime" value="a16"></label>
+										</td>
+									</tr>
 							
 							
 									
