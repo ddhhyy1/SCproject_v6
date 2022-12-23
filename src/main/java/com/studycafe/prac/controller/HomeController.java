@@ -59,10 +59,20 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/searchSeat")
-	public String searchSeat() {
+	public String searchSeat(HttpServletRequest request, Model model) {
+		
+		TodayTicketDao dao = sqlSession.getMapper(TodayTicketDao.class);
+		
+		String userId = request.getParameter("userId");
+		String selectedDate = request.getParameter("selectedDate");
+		int seatNo = Integer.parseInt(request.getParameter("seatNo").toString());
+		
+		model.addAttribute("userId", userId);
+		model.addAttribute("selectedDate", selectedDate);
+		model.addAttribute("seatNo", seatNo);
 		
 		
-		return "searchSeat";
+		return "TodayTicketView2";
 	}
 	
 	@RequestMapping(value="/TodayTicketView2")

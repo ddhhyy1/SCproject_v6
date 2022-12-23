@@ -91,8 +91,23 @@
 		<tr>
 			<td class="titlebox">
 				<span class="title02">회원아이디:</span>
-				<input type="text" name="userId">
+				$[userId]
 			</td>
+		</tr>
+		<tr>
+			<td class="titlebox">
+				<span class="title02">이용날짜:
+				${selectedDate}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="titlebox">
+				<span class="title02">좌석지정:
+  					${seatNo}
+				</span>
+			</td>
+		
 		</tr>
 		<tr>
 							<td class="titlebox">
@@ -108,26 +123,6 @@
 								</span>
 							</td>
 							</tr>
-		<tr>
-			<td class="titlebox">
-				<span class="title02">날짜지정:
-				<input type="text" id="pickDate" name="selectedDate">
-				</span>
-			</td>
-		</tr>
-		<tr>
-			<td class="titlebox">
-				<span class="title02">좌석지정:
-  					<select name="seatNo" >
-   						 <option value="none" name="seatNo2">=== 선택 ===</option>
-   						 <c:forEach begin="1" end="25" step="1" var="n">
-    					 <option name="seatNo">${n}</option>
-    					 </c:forEach>
- 					 </select>
-				</span>
-			</td>
-		
-		</tr>
 		<tr>
 			<td>
 				<center>
