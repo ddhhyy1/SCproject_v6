@@ -57,6 +57,20 @@ public class HomeController {
 		return "TodayTicketView";
 	}
 	
+	@RequestMapping(value="/searchSeat")
+	public String searchSeat() {
+		
+		
+		return "searchSeat";
+	}
+	
+	@RequestMapping(value="/TodayTicketView2")
+	public String TodayTicketView2() {
+		
+		
+		return "TodayTicketView2";
+	}
+	
 	@RequestMapping(value="/registToday")
 	public String regist(HttpServletRequest request ) {
 		
@@ -66,7 +80,7 @@ public class HomeController {
 		String userId = request.getParameter("userId");
 		String ticketName1 = request.getParameter("ticketName");
 		String selectedDate = request.getParameter("selectedDate");
-		String selectedTime = request.getParameter("selectedTime");
+		String [] selectedTime = request.getParameter("selectedTime");
 		
 		
 		dao.regist(seatNo1, userId, ticketName1, selectedDate, selectedTime);

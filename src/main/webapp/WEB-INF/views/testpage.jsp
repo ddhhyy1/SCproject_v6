@@ -12,15 +12,29 @@
 $(document).ready(function() {
 	  $('#selectBox').change(function() {
 	    var result = $('#selectBox option:selected').val();
-	    if (result == 'option1') {
-	    	$('.change02').text("바끼기전2");
+	    if (result == '1') {
+	    	$('.change02').text("9:00");
 	    } else {
-	      $('.div1').hide();
+	    	
+	    }
+	  }); 
+	}); 
+		
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	  $('#startTimeSelect2').change(function() {
+	    var result = $('#startTimeSelect2 option:selected').val();
+	    if (result == 'a1') {
+	    	var text = $("#country :selected").text();
+	    	var new_string = text.substr(:,0);
+	    	console.log(new_string);
+	    } else {
+	    	$('.change03').text("동작하니?");
 	    }
 	  }); 
 	}); 
 </script>
-
 <!-- 끝 -->
 
 <script>
@@ -53,17 +67,29 @@ function categoryChange(e) {
 <body>
 
 <select id="selectBox" name="selectBox">
-  <option value="" selected="selected">이용시간</option>
+  <option value="" selected="selected">이용할 시간</option>
   <option value="1">1시간</option>
   <option value="2">2시간</option>
   <option value="3">3시간</option>
 </select>
-<div class="div1"> ㅎㅇ
-</div>
+
+<select id="startTimeSelect2" name="startTimeSelect2">
+  <option value="" selected="selected">시작시간 선택</option>
+  	<option value="a1">8:00</option>
+	<option value="a2">9:00</option>
+	<option value="a3">10:00</option>
+	<option value="a4">11:00</option>
+	<option value="a5">12:00</option>
+	<option value="a6">13:00</option>
+	<option value="a7">14:00</option>
+</select>
+
+종료시간:
+<div class="change02">0</div>
+<div class="change03"></div>
 
 
-
-<select onchange="categoryChange(this)">
+<!-- <select id="startTimeSelect" onchange="categoryChange(this)">
 	<option>시작시간 선택</option>
 	<option value="a1">8:00</option>
 	<option value="a2">9:00</option>
@@ -74,12 +100,12 @@ function categoryChange(e) {
 	<option value="a7">14:00</option>
 </select>
 
-<div class="change02">종료시간:</div>
 
+<hr>
 <select id="good">
 <option>종료시간 선택</option>
 </select>
-
+ -->
 
 </body>
 </html>

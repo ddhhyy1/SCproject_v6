@@ -81,7 +81,7 @@
 <body>
 <%@ include file="include/header.jsp" %>
 	<center>
-	<form action="registToday">
+	<form action="searchSeat">
 	<table width="65%" border="0" cellspacing="0" cellpadding="20">
 		<tr>
 			<td class="titlebox">
@@ -112,132 +112,14 @@
  					 </select>
 				</span>
 			</td>
-		
 		</tr>
 		<tr>
-			<td>
-				<center>
-					<div class="row">
-						<table id="example-table-1"  width="80%" border="1" cellspacing="1" cellpadding="10"
-						>
-							<thead>
-									<tr>
-										<th>시간</th>
-										<th>가능여부</th>
-										<th>현재 이용 가능 좌석</th>
-									</tr>
-							</thead>
-							<tbody>
-									<tr>
-										<td class="skillbox" >8:00 ~ 9:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-										<td rowspan="16" class="picbox">
-										<img src="${pageContext.request.contextPath }/resources/img/cafemap.png" width="700">
-									</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >9:00 ~ 10:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >10:00 ~ 11:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >11:00 ~ 12:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >12:00 ~ 13:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >13:00 ~ 14:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >14:00 ~ 15:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >15:00 ~ 16:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >16:00 ~ 17:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >17:00 ~ 18:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >18:00 ~ 19:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >19:00 ~ 20:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >20:00 ~ 21:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >21:00 ~ 22:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >22:00 ~ 23:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-									<tr>
-										<td class="skillbox" >23:00 ~ 24:00</td>
-										<td class="skillbox" >사용&예약 가능</td>
-									</tr>
-							
-							
-									
-							</tbody>
-				</table>
-						<tr>
-							<td class="titlebox">
-								<span class="title02" name="ticketName2">이용시간:
-  									<select name="ticketName" >
-   						 				<option value="none" name="usingTIME">=== 선택 ===</option>
-   						 				<option value="1" selected>1시간 - 2,000p</option>
-    					 				<option value="2">2시간 - 3,000p</option>
-    									<option value="4">4시간 - 5,000p</option>
-    								    <option value="6">6시간 - 6,000p</option>
-    					 				<option value="8">8시간 - 7,000p</option>
- 					 				</select>
-								</span>
-							</td>
-							</tr>
-							<tr>
-								<td class="titlebox">
-									<span class="title02">시작시간 지정:
-										<select name="selectedTime" >
-   						 				<option value="none" name="startTIME">=== 선택 ===</option>
-   						 					<c:forEach begin="8" end="23" step="1" var="t">
-    					 						<option name="selectTime" value="a${t}">${t}:00 ~ ${t+1}:00</option>
-    									 	</c:forEach>
- 					 				</select>
-										
-									</span>
-									</td>
-							</tr>
-							<tr>
-										<td colspan="3">
-											
-											<input class="button_type01" type="button" value="예약하기" onclick="script:window.location='QuestionList'">
-											<input class="button_type01" type="button" value="뒤로" onclick="window.history.back() ">
-										</td>
-									</tr>
-				</div>
-				</center>			
+		<td>
+			<input class="button_type01" type="submit" value="좌석검색">
+			<input class="button_type01" type="button" value="뒤로" onclick="window.history.back() ">
 			</td>
 		</tr>
+		
 	</table>
 	
 	</form>
