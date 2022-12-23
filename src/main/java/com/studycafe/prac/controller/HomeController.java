@@ -1,11 +1,15 @@
 package com.studycafe.prac.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.connector.Response;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -83,7 +87,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/registToday")
-	public String regist(HttpServletRequest request ) {
+	public String regist(HttpServletRequest request,HttpServletResponse response) {
 		
 		TodayTicketDao dao = sqlSession.getMapper(TodayTicketDao.class);
 		
@@ -93,16 +97,35 @@ public class HomeController {
 		String selectedDate = request.getParameter("selectedDate");
 		String [] selectedTime = request.getParameterValues("selectedTime");
 		
+		//넘어온 체크박스값들 정렬 후, 첫번째값과 마지막값 추출하여 start,end time에 각각 넣기
 		Arrays.sort(selectedTime);
 			String startTime = selectedTime[0];
 			String endTime= selectedTime[selectedTime.length - 1];
 
+			int intticketName= Integer.parseInt(ticketName);
+			
+			if(intticketName==selectedTime.length) {
+				dao.regist(seatNo, userId, ticketName, selectedDate, startTime, endTime);
+				return "redirect:registTodayConfirm";
+			}else {
+			try {
+				response.setContentType("text/html; charset=UTF-8");      
+		        PrintWriter out;
+				out = response.getWriter();
+				out.println("<script>alert('이용시간과 선택한 지정시간이 일치하지 않습니다.'); history.go(-1);</script>");
+			    out.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return "TodayTicketView2";
+			}
 		
 		
-		dao.regist(seatNo, userId, ticketName, selectedDate, startTime, endTime);
 		
 		
-		return "redirect:registTodayConfirm";
+	
 	}	
 	
 	
@@ -114,7 +137,7 @@ public class HomeController {
 		
 		ArrayList<seatDto> seatDto= dao.registTodayConfirm();
 		
-		seatDto fseatDto = seatDto.get(0);
+		seatDto fseatDto = seatDto.get(seatDto.size()-1);
 		
 		model.addAttribute("fseatDto", fseatDto);
 		 

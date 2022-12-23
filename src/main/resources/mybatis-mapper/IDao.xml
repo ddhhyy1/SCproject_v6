@@ -14,7 +14,7 @@
 
 
 	<select id="registTodayConfirm" resultType="com.studycafe.prac.dto.seatDto">
-		select * from scseatTBL order by tempUsingNo desc
+		select * from scseatTBL order by tempUsingNo DESC
 	
 	</select>
 	<!-- 당일 이용권 끝  -->
