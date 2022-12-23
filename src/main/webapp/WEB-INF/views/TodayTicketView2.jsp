@@ -80,9 +80,17 @@
 </head>
 <body>
 <%@ include file="include/header.jsp" %>
+<%
+ String userId=request.getParameter("userId");   //주소창에서 입력한 값들 저장
+ String selectedDate=request.getParameter("selectedDate");
+ String seatNo=request.getParameter("seatNo");
+%>
 	<center>
 	<form action="registToday">
 	<table width="65%" border="0" cellspacing="0" cellpadding="20">
+		<input type="hidden" name = "userId" value="<%=userId%>">
+		<input type="hidden" name = "selectedDate" value="<%=selectedDate%>">
+		<input type="hidden" name = "seatNo" value="<%=seatNo%>">
 		<tr>
 			<td class="titlebox">
 				<h1>당일권_사용등록&예약하기</h1>
@@ -91,7 +99,7 @@
 		<tr>
 			<td class="titlebox">
 				<span class="title02">회원아이디:</span>
-				$[userId]
+				${userId}
 			</td>
 		</tr>
 		<tr>
